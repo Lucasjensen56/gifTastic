@@ -1,21 +1,19 @@
 
 
 
- // var searchInput = something //something goes here 
-
-<<<<<<< HEAD
-
-// testing a few things
- var gifSearch = $(this).attr("data-gifSearch");
-=======
- var gifSearch = $(this).attr('data');
->>>>>>> f1af2fe1450447b2d5e71eedab6b7cce4f81c0a6
 
 
 //var queryURL = "https://api.giphy.com/v1/gifs/search?q=harry+potter&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz"
 
-var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz"
 
+
+function displayGifs() {
+
+
+// var gifSearch = $(this).attr("data")
+// var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz"
+
+var queryURL = "https://api.giphy.com/v1/gifs/search?q=Harry+Potter&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz"
 
 
 
@@ -23,10 +21,62 @@ $.ajax({
 	url: queryURL,
 	method: "GET"
 }).then(function(response) {
-	console.log(response);
+
+	console.log(response.data);
+
+
+	var results = response.data
+
+	for (var i = 0; i < results.length; i++) {
+
+
+	
+
+	var gifsDisplay = $("#gifsDisplay")
+
+	var gifDiv = $("<div>");
+
+	var test = $("<p>").text(JSON.stringify(response))
+
+	// var gif = $("<img>").attr("src", response.data);
+
+
+	gifDiv.append(test)
+
+	gifsDisplay.append(gifDiv)
+
+};
+
+
+
+
+
+
 }) 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> f1af2fe1450447b2d5e71eedab6b7cce4f81c0a6
+	 // var gifSearch = $(this).attr("data-gifSearch");
+
+	}
+
+
+function createButtons() {
+
+
+	// adds saved gif button
+	$("#gifsButtons").on("click", function(event) {
+
+		var addedGifs = $("#gifSearch").val().trim();
+
+		 // need to create and push to an arry where we will store the gif buttons
+
+	})
+
+
+}
+
+displayGifs() 
+
+
+
+
