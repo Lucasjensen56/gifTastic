@@ -3,8 +3,9 @@
 
 
 
-//var queryURL = "https://api.giphy.com/v1/gifs/search?q=harry+potter&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz"
+// empty gif array 
 
+var gifsArray = [];
 
 
 function displayGifs() {
@@ -58,13 +59,32 @@ $.ajax({
 
 function createButtons() {
 
+	$("gifsButtons").empty();
 
-	// adds saved gif button
-	$("#gifsButtons").on("click", function(event) {
 
+
+
+
+
+// grabbing input from user
+	$("#gifSearch-input").on("click", function(event) {
+		 event.preventDefault();
 		var addedGifs = $("#gifSearch").val().trim();
 
-		 // need to create and push to an arry where we will store the gif buttons
+		gifsArray.push(addedGifs)
+
+		var addedGifsButton = $("<button>");
+
+		addedGifsButton.append(addedGifs);
+
+		$("#gifsButtons").prepend(addedGifs)
+
+
+
+
+
+			
+		console.log(addedGifsButton)
 
 	})
 
@@ -72,6 +92,7 @@ function createButtons() {
 }
 
 displayGifs() 
+createButtons()
 
 
 
