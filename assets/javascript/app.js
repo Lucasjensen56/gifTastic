@@ -8,13 +8,19 @@
 var gifsArray = [];
 
 
+
+
+
+
 function displayGifs() {
 
 
-// var gifSearch = $(this).attr("data")
-// var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz"
+	 var gifSearch = $(this).attr("data-results[i].images.fixed_height.url");
 
-var queryURL = "https://api.giphy.com/v1/gifs/search?q=Harry+Potter&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz"
+
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz"
+
+// var queryURL = "https://api.giphy.com/v1/gifs/search?q=Harry+Potter&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz"
 
 
 
@@ -23,13 +29,12 @@ $.ajax({
 	method: "GET"
 }).then(function(response) {
 
-	console.log(response.data);
+	// console.log(response.data);
 
 
 	var results = response.data
 
 	for (var i = 0; i < results.length; i++) {
-
 
 
 	var gifDiv = $("<div>");
@@ -53,7 +58,6 @@ $.ajax({
 }) 
 
 
-	 // var gifSearch = $(this).attr("data-gifSearch");
 }
 
 
@@ -63,37 +67,28 @@ function createButtons() {
 
 
 
-
-
-
 // grabbing input from user
 	$("#gifSearch-input").on("click", function(event) {
 		 event.preventDefault();
+
 		var addedGifs = $("#gifSearch").val().trim();
+
 
 		gifsArray.push(addedGifs)
 
 		var addedGifsButton = $("<button>");
+		addedGifsButton.attr("data-results")
 
 		addedGifsButton.append(addedGifs);
 
-		$("#gifsButtons").prepend(addedGifs)
-
-
-
-
-
-			
-		console.log(addedGifsButton)
-
+		$("#gifsButtons").prepend(addedGifsButton)
 	})
-
 
 }
 
-displayGifs() 
+$(document).on("click", "button",displayGifs)
+
+
+
+// displayGifs() 
 createButtons()
-
-
-
-
