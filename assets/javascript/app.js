@@ -30,34 +30,30 @@ $.ajax({
 	for (var i = 0; i < results.length; i++) {
 
 
-	
-
-	var gifsDisplay = $("#gifsDisplay")
 
 	var gifDiv = $("<div>");
 
-	var test = $("<p>").text(JSON.stringify(response))
+	// var test = $("<p>").text(JSON.stringify(response))
 
-	// var gif = $("<img>").attr("src", response.data);
+	var gifImage = $("<img>");
+
+	gifImage.attr("src", results[i].images.fixed_height.url);
 
 
-	gifDiv.append(test)
 
-	gifsDisplay.append(gifDiv)
+	gifImage.append(gifDiv);
+
+
+	$("#gifsDisplay").prepend(gifImage);
 
 };
-
-
-
-
 
 
 }) 
 
 
 	 // var gifSearch = $(this).attr("data-gifSearch");
-
-	}
+}
 
 
 function createButtons() {
