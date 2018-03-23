@@ -1,55 +1,47 @@
 
-
-
-
-
 // empty gif array 
-
 var gifsArray = [];
 
-
-
-
- // var gifSearch;
-
 function displayGifs(gifSearch) {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch +    "&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz&limit=5"
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+
+    console.log(response.data);
+
+    var results = response.data
+
+    for (var i = 0; i < results.length; i++) {
+      var gifDiv = $("<div>");
+
+      var rating = $("<p>").text("Rating: " + results[i].rating) 
+
+      console.log(results[i].rating)
+
+      var gifImage = $("<img>");
 
 
+      gifImage.attr("src", results[i].images.fixed_height.url);
+      gifImage.attr("gif");
+
+      gifDiv.append(rating);
+      
+      gifDiv.append(gifImage)
+
+      //gifImage.append(gifDiv);
 
 
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz&limit=5"
+      // $("#gifsDisplay").empty();
 
-// var queryURL = "https://api.giphy.com/v1/gifs/search?q=Harry+Potter&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz&limit=5"
-
-
-
-$.ajax({
-	url: queryURL,
-	method: "GET"
-}).then(function(response) {
-
-	console.log(response.data);
-
-
-	var results = response.data
-
-	for (var i = 0; i < results.length; i++) {
-	var gifDiv = $("<div>");
-	var gifImage = $("<img>");
-	gifImage.attr("src", results[i].images.fixed_height.url);
-	gifImage.attr("gif");
-	
-
-	gifImage.append(gifDiv);
-
-	// $("#gifsDisplay").empty();
-	$("#gifsDisplay").prepend(gifImage);
-
-
+        $("#gifsDisplay").prepend(gifDiv);
+      //$("#gifsDisplay").prepend(gifImage);
+ 
 
 	};
 }) 
-
 
 }
 
@@ -96,4 +88,5 @@ $("#gifSearch-input").on("click", function (event) {
 
 $(document).on("click", createButtons())
 // createButtons()
+
 
