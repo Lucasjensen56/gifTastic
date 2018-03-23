@@ -8,22 +8,30 @@
 
 
 
-	<title>Harry Potter gifs</title>
+<title>Harry Potter gifs</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid center-align">
+  
+  <nav>
+    <div class="nav-fixed">
+    <h1 class="brand-logo center align">Harry Potter Gif Search</h1>
+    </div>
+  </nav>
   
   
    <div id="initial-buttons"></div>
 
 	<header>Search for anything</header>
-
+<div class="container">
  	<form id="gifSearch-form">
 		<label for="gif-input">Add a "something" search</label>
 		<input type="text" id="gifSearch">
-		<input id="gifSearch-input" type="button" value="search for a Harry Potter Gif">
+		<input class="btn #37474f blue-grey darken-3 " id="gifSearch-input" type="button" value="search for a Harry Potter Gif">
 	</form>
+  </div>
 
 
 
@@ -34,13 +42,18 @@
 
 
 
-	<!-- This will display all searched gifs -->
-	<div id="gifsDisplay"></div>
-
+	<div class="row" id="gifsDisplay">
+    
+    
+    
+  </div>
+  
+<!--   <footer class="page-footer"></footer>
+ -->
 
 
 </div>
-
+  
 
 
 
