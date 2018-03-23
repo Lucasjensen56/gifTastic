@@ -11,6 +11,12 @@ function displayInitialButtons() {
     
   var topicsDiv = $("<button>");
   var topicsBtnName = topicsDiv.text(topics[i]);
+    
+       $(topicsBtnName).addClass("btn #37474f blue-grey darken-3");
+
+    
+ 
+
      
     
   //var topicsVal = topics[i];
@@ -56,6 +62,8 @@ function displayGifs(gifSearch) {
       var gifDiv = $("<div>");
 
       var rating = $("<p>").text("Rating: " + results[i].rating) 
+      
+      //rating.addClass("col m4")
 
      // console.log(results[i].rating)
 
@@ -73,10 +81,15 @@ function displayGifs(gifSearch) {
       gifImage.attr("data-state", "still");
             
       gifImage.addClass("gif");
+      
+      gifImage.addClass("responsive-img")
+      //gifImage.addClass("col m3")
 
       gifDiv.append(rating);
       
       gifDiv.append(gifImage)
+      
+      gifDiv.addClass("col s4")
 
       //gifImage.append(gifDiv);
 
@@ -85,6 +98,7 @@ function displayGifs(gifSearch) {
 
         $("#gifsDisplay").prepend(gifDiv);
       //$("#gifsDisplay").prepend(gifImage);
+      
       
       $(".gif").on("click", function() {
           console.log("i cliked on the gif")
@@ -99,7 +113,7 @@ function displayGifs(gifSearch) {
             $(this).attr("data-state", "still");
           }
 
-       
+    
 
     });
  
@@ -124,11 +138,21 @@ $("#gifSearch-input").on("click", function (event) {
 	var addedGifs = $("#gifSearch").val().trim();
   
 	gifsArray.push(addedGifs)
+
 	var addedGifsButton = $("<button>");
+  
+   $(addedGifsButton).addClass("btn #37474f blue-grey darken-3");
+
+  
+  
+  
+  
 	addedGifsButton.append(addedGifs);
 	$("#gifsButtons").prepend(addedGifsButton)
 
 	addedGifsButton.addClass("gif")
+  
+  
   
   
 
