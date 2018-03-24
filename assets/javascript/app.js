@@ -2,7 +2,7 @@
 // empty gif array 
 var gifsArray = [];
 
-var topics = ["voldemort", "harry Potter", "ron", "star wars"]
+var topics = ["voldemort", "harry Potter", "Fantasatic Beasts and where to find them"]
 
 function displayInitialButtons() {
 
@@ -10,11 +10,19 @@ function displayInitialButtons() {
     
   var topicsDiv = $("<button>");
   var topicsBtnName = topicsDiv.text(topics[i]);
+
+  topicsDiv.attr("data-name", topics[i])
+
     
   $(topicsBtnName).addClass("btn #37474f blue-grey darken-3");
 
+
+
+
     
-  	//var topicsVal = topics[i];
+  	var topicsVal = topics[i];
+
+  	console.log(topicsVal)
     
     //var topicsVal = $(this).topics[i];
   
@@ -23,7 +31,7 @@ function displayInitialButtons() {
  
     $("button").on("click", function() {
       //console.log($(this).val())
-       displayGifs($("#topicsDiv").val())  
+       displayGifs($(this).data("name"))  
       
     });
    
@@ -101,6 +109,8 @@ function displayGifs(gifSearch) {
     	});
  
 	};
+
+
 }) 
 
 }
