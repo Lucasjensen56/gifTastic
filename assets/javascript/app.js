@@ -13,6 +13,8 @@ function displayInitialButtons() {
 
   topicsDiv.attr("data-name", topics[i])
 
+  topicsDiv.addClass("hoverable")
+
     
   $(topicsBtnName).addClass("btn #37474f blue-grey darken-3");
 
@@ -136,6 +138,8 @@ $("#gifSearch-input").on("click", function (event) {
 	$("#gifsButtons").prepend(addedGifsButton)
 
 	addedGifsButton.addClass("gif")
+	addedGifsButton.addClass("hoverable")
+
   
   
     $("button").on("click", function() {
