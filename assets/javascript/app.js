@@ -8,43 +8,29 @@ function displayInitialButtons() {
 
   for (var i = 0; i < topics.length; i++) {
     
-    
   var topicsDiv = $("<button>");
   var topicsBtnName = topicsDiv.text(topics[i]);
     
-       $(topicsBtnName).addClass("btn #37474f blue-grey darken-3");
+  $(topicsBtnName).addClass("btn #37474f blue-grey darken-3");
 
     
- 
-
-     
-    
-  //var topicsVal = topics[i];
+  	//var topicsVal = topics[i];
     
     //var topicsVal = $(this).topics[i];
   
    $("#initial-buttons").append(topicsDiv)
     
-    
-  
-    
-    
+ 
     $("button").on("click", function() {
       //console.log($(this).val())
        displayGifs($("#topicsDiv").val())  
       
     });
-    
-   
    
   }
 
 }
 
-
-
-
- 
 
 function displayGifs(gifSearch) {
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch +    "&api_key=PjsJJF5igGmYhSxudBVlGWyciIlt43Qz&limit=10"
@@ -101,8 +87,8 @@ function displayGifs(gifSearch) {
       
       
       $(".gif").on("click", function() {
-          console.log("i cliked on the gif")
-         
+          console.log("i clicked on the gif")
+    
   
             var state = $(this).attr("data-state");
             if (state === "still") {
@@ -112,12 +98,8 @@ function displayGifs(gifSearch) {
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still");
           }
-
-    
-
-    });
+    	});
  
-
 	};
 }) 
 
@@ -128,9 +110,6 @@ function createButtons() {
 
 
 $("gifsButtons").empty();
-  
-
-
 
 $("#gifSearch-input").on("click", function (event) {
   event.preventDefault();
@@ -142,10 +121,6 @@ $("#gifSearch-input").on("click", function (event) {
 	var addedGifsButton = $("<button>");
   
    $(addedGifsButton).addClass("btn #37474f blue-grey darken-3");
-
-  
-  
-  
   
 	addedGifsButton.append(addedGifs);
 	$("#gifsButtons").prepend(addedGifsButton)
@@ -153,25 +128,11 @@ $("#gifSearch-input").on("click", function (event) {
 	addedGifsButton.addClass("gif")
   
   
-  
-  
-
-  
     $("button").on("click", function() {
       
       displayGifs(addedGifs)
       
     })
-
-
-
-
-// commented this out to stop displays from generating every time I just click the search button. We need the buttons to
-
-//displayGifs(addedGifs)
-
-
-
 
 });
 
@@ -180,6 +141,5 @@ $("#gifSearch-input").on("click", function (event) {
 displayInitialButtons()
 
 $(document).on("click", createButtons())
-// createButtons()
 
 
