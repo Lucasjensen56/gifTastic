@@ -79,7 +79,9 @@ function displayGifs(gifSearch) {
       gifImage.addClass("gif");
       
       gifImage.addClass("responsive-img")
-      //gifImage.addClass("col m3")
+
+      gifImage.addClass("z-depth-1")
+      
 
       gifDiv.append(rating);
       
